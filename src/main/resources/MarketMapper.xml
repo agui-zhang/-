@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.project.dao.MarketDao">
+
+    <insert id="createUser" parameterType="com.graduation.project.entity.User">
+        insert into user(userName,email,password) values(#{userName},#{email},#{password})
+    </insert>
+    <delete id="deleteGoods">
+        delete from shopcar where binary email=#{email} and binary goodsName=#{goodsName}
+    </delete>
+    <delete id="deleteWishGoods">
+        delete from wishlist where binary email=#{email} and binary goodsName=#{goodsName}
+    </delete>
+    <select id="login" parameterType="String" resultType="com.graduation.project.entity.User">
+        select * from user where binary email=#{email} and binary password=#{password}
+    </select>
+    <select id="sortList" resultType="com.graduation.project.entity.Goods">
+        select * from goods limit #{defaultPage},9
+    </select>
+    <select id="sortMath" resultType="java.lang.Integer">
+select count(*) from goods
+    </select>
+    <select id="goodsMsg" resultType="com.graduation.project.entity.Goods">
+        select * from goods g join  user u on g.email=u.email where binary goodsName=#{goodsName} and binary g.email=#{email};
+    </select>
+    <select id="shopCarList" resultType="com.graduation.project.entity.ShopCar">
+        select * from shopcar where binary email=#{email}
+    </select>
+    <select id="wishList" resultType="com.graduation.project.entity.ShopCar">
+        select * from wishlist where binary email=#{email}
+    </select>
+    <select id="checkShopCar" resultType="com.graduation.project.entity.ShopCar">
+        select * from shopcar where binary email=#{email} and binary goodsName=#{goodsName}
+    </select>
+    <select id="checkWishList" resultType="com.graduation.project.entity.ShopCar">
+        select * from wishlist where binary email=#{email} and binary goodsName=#{goodsName}
+    </select>
+    <select id="sortList2" resultType="com.graduation.project.entity.Goods">
+select * from goods where goodsName like binary concat('%',#{defaultGoodsName},'%') limit #{defaultPage},9
+    </select>
+    <select id="checkEmail" resultType="string">
+        select email from user where binary email=#{email}
+    </select>
+    <select id="checkGoodsName" resultType="com.graduation.project.entity.Goods">
+select * from goods where binary email=#{email} and binary goodsName=#{goodsName};
+    </select>
+    <select id="sortMath2" resultType="java.lang.Integer">
+select count(*) from goods where goodsName like binary concat('%',#{defaultGoodsName},'%');
+    </select>
+    <insert id="uploadGoods" parameterType="com.graduation.project.entity.Goods">
+        insert into goods(email, goodsName, goodsPrice, goodsDetail, goodsPath) values (#{email},#{goodsName},#{goodsPrice},#{goodsDetail},#{goodsPath})
+    </insert>
+    <insert id="addToCar" parameterType="com.graduation.project.entity.ShopCar">
+        insert into shopcar(goodsEmail,email, goodsName, goodsPrice, goodsImg) values (#{goodsEmail},#{email},#{goodsName},#{goodsPrice},#{goodsImg})
+    </insert>
+    <insert id="addToWishList" parameterType="com.graduation.project.entity.ShopCar">
+        insert into wishlist(goodsEmail,email, goodsName, goodsPrice, goodsImg) values (#{goodsEmail},#{email},#{goodsName},#{goodsPrice},#{goodsImg})
+    </insert>
+    <insert id="accountMsg" parameterType="com.graduation.project.entity.AccountMsg">
+        insert into accountMsg(userName,email,gender,sign) values (#{userName},#{email},#{gender},#{sign})
+    </insert>
+</mapper>

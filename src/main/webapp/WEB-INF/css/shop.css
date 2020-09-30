@@ -1,0 +1,187 @@
+#body {
+    margin-bottom: 0;
+}
+
+.infor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 40px 0 40px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+    margin: 0 170px 0 170px;
+}
+
+.inforRow {
+    display: flex;
+    flex-direction: row;
+    font-weight: lighter;
+    padding-bottom: 25px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 75px 5px 75px;
+}
+
+.content h3 {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.infor1 {
+    border-right: 1px solid rgb(224, 224, 224);
+}
+
+.product {
+    margin-top: 75px;
+    border-bottom: 3px solid rgb(224, 224, 224);
+}
+
+.productContainer {
+    margin-left: 170px;
+}
+
+.productRow1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.productRow1 ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    float: right;
+    margin-right: 170px;
+    margin-top: 4px;
+}
+
+.productRow1 li > a {
+    margin-right: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.productRow1 li > a:hover {
+    color: red;
+}
+
+.circle {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgb(189, 189, 189);
+    margin: 0px 13px 4px 13px;
+}
+
+.Row {
+    display: flex;
+    flex-direction: row;
+}
+
+.Row > div {
+    margin: 0 -60px 70px 0;
+}
+
+.card {
+    border: 0;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.card-text {
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.card-body a {
+    text-decoration: none;
+}
+
+.card-body a:hover {
+    color: red;
+}
+
+.card-body > p {
+    color: red;
+}
+
+.card:hover img {
+    transition: 0.4s;
+    transform: scale(0.97);
+    opacity: 40%;
+}
+
+.card img {
+    transition:0.4s;
+    transform: scale(1);
+}
+
+.img_option {
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.addToCar{
+    position: absolute;
+    margin-top: -150px;
+    margin-left: 200px;
+    transition: 0.2s;
+}
+.quick-view{
+    position: absolute;
+    margin-top: -90px;
+    margin-left: -10px;
+    transition: 0.2s;
+}
+
+.card:hover .img_option {
+    opacity: 1;
+    transition: 0.4s;
+}
+.card:hover .addToCar {
+    transform: translateX(-100px);
+    transition: 0.3s;
+}
+.card:hover .quick-view {
+    transform: translateX(110px);
+    transition: 0.3s;
+}
+
+.img_option a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 15px;
+    width: 130px;
+    height: 45px;
+    border-radius: 0;
+    border: 0;
+    font-weight: lighter;
+    text-align: center;
+    font-size: 17px;
+}
+
+.img_option a:hover {
+    background-color: rgb(244, 67, 54);
+    transition: 0.4s;
+}
+
+
+.btn:hover, .btn:focus, .btn:active, .btn:visited,a:hover, a:focus,a:active,a:visited {
+    outline: none;
+    box-shadow: none !important;
+}

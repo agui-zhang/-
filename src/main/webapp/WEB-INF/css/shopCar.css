@@ -1,0 +1,126 @@
+.pathContent a{
+    text-decoration: none;
+    font-weight: lighter;
+    font-size: 18px;
+}
+.pathContent a:hover{
+    color: red;
+}
+.pathContent li+li:before{
+     content: "->";
+    margin: 0 10px;
+ }
+.pathContent {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+}
+
+.shopCarBody{
+    display: flex;
+    flex-direction: column;
+    margin: 35px 0 0 160px;
+}
+#shopCarHeader{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+thead {
+    border-bottom: 2px solid rgb(238, 238, 238);
+}
+th{
+    font-size: 20px;
+    padding-bottom: 13px;
+    padding-left: 35px;
+}
+td{
+    font-size: 20px;
+    padding-left: 35px;
+}
+.card-item{
+    border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.itemImg{
+    border: 1px rgb(238,238,238) solid;
+    width: 80px;
+    height: 80px;
+    margin: 15px 0;
+}
+.itemInfor{
+    padding-left: 0;
+}
+.itemInfor a{
+    text-decoration: none;
+    margin-left: 20px;
+}
+.itemInfor a:hover{
+    color: red;
+}
+.price{
+    color: red;
+    font-size: 17px;
+}
+.total{
+    color: red;
+    font-size: 17px;
+}
+.number input{
+    width: 80px;
+    height: 50px;
+    border: 1px rgb(238,238,238) solid;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: lighter;
+    font-size: 17px;
+}
+.itemFooter{
+    padding-top: 22px;
+    font-weight: lighter;
+}
+.itemFooter button{
+    border: 0;
+    width: 160px;
+    height: 45px;
+    font-weight: lighter;
+    font-size: 17px;
+    background-color: rgb(33,33,33);
+    float: right;
+}
+.itemFooter button:hover{
+    background-color: rgb(244, 67, 54);
+    transition: 0.4s;
+}
+.itemFooter a{
+text-decoration: none;
+}
+.itemFooter a:hover{
+    color: red;
+}
+.itemImgX{
+    display: none;
+}
+.spinner-border{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    margin-left:25px ;
+    margin-top: 25px;
+}
+.text-center{
+    position: absolute;
+    text-align: center;
+    margin: 15px 0;
+    width: 80px;
+    height: 80px;
+}
+.itemImgX{
+    width: 80px;
+    height: 80px;
+}
+.svg:hover{
+    cursor: pointer;
+}

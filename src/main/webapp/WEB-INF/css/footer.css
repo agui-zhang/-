@@ -1,0 +1,125 @@
+
+.footerFirst {
+    background-color: rgb(245, 245, 245);
+    padding: 60px 170px 60px 170px;
+    display: flex;
+    flex-direction: row;
+    font-weight: lighter;
+}
+
+.footerRight {
+    margin-left: 50px;
+}
+
+.footerLeft {
+    border-right: 1px solid rgb(224, 224, 224);
+    padding-right: 50px;
+}
+
+#body {
+    margin-bottom: 120px;
+}
+
+.Left1 h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.l1 {
+    margin-bottom: 25px;
+    list-style: none;
+}
+
+.l1 li {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.l1 span {
+    color: red;
+}
+
+.l1 {
+    padding: 0;
+}
+
+.l2 {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+.up{
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+.up h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.say {
+    display: flex;
+    flex-direction: row;
+    margin: 35px 20px 40px 0;
+}
+
+.say img {
+    border-radius: 50%;
+    margin-right: 35px;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.row h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+.row ul {
+    list-style: none;
+    padding-left: 0;
+}
+.row li {
+    margin-bottom: 10px;
+}
+.row a{
+    text-decoration: none;
+    font-size: 16px;
+}
+.row a:hover{
+    color: red;
+}
+.footerSecond{
+    background-color: rgb(33,33,33);
+    height: 101px;
+}
+#footerText p{
+    color: rgb(189,189,189);
+    font-weight: lighter;
+    padding: 35px 40px 0 160px;
+}
+
+.row2{
+    display: flex;
+    flex-direction: row;
+}
+
+.row2 a{
+    color: red;
+    text-decoration: none;
+}
+#row2Img{
+    padding: 35px 170px 0 160px;
+}
+#row2Img img{
+    margin-right: 3px;
+}
+.btn:hover, .btn:focus, .btn:active, .btn:visited,a:hover, a:focus,a:active,a:visited {
+    outline: none;
+    box-shadow: none !important;
+}

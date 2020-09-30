@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<meta charset="utf-8" />
+		<title>校园购</title>
+		<link rel="stylesheet" type="text/css" href="../bootstrap-4.5.0-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/slider.css"/>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function() {
+				$('.shutter').shutter({
+					shutterW: 1000, // 容器宽度
+					shutterH: 358, // 容器高度
+					isAutoPlay: true, // 是否自动播放
+					playInterval: 3000, // 自动播放时间
+					curDisplay: 3, // 当前显示页
+					fullPage: false // 是否全屏展示
+				});
+			});
+			
+			// 当网页向下滑动 20px 出现"返回顶部" 按钮
+			window.onscroll = function() {scrollFunction()};
+			 
+			function scrollFunction() {
+			    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			        document.getElementById("myBtn").style.display = "block";
+			    } else {
+			        document.getElementById("myBtn").style.display = "none";
+			    }
+			}
+			 
+			// 点击按钮，返回顶部
+			function topFunction() {
+			    document.body.scrollTop = 0;
+			    document.documentElement.scrollTop = 0;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="root">
+			<button onclick="topFunction()" id="myBtn" title="回顶部">返回顶部</button>
+			<div id="header">
+				<div id="header-right">
+					<ul class="nav nav-tabs">
+						<li role="presentation"><a href="shop.html">校园商城</a></li>
+						<li role="presentation"><a href="#">平台规则</a></li>
+						<li role="presentation"><a href="#">关于我</a></li>
+					</ul>
+				</div>
+
+				<div id="header-center">
+					<div id="center">
+						<div id="center_text">
+							<div id="textOne">正规平台 高价回收</div>
+							<div id="textTwo">累计 1516586 人，成功卖出了卡</div>
+						</div>
+						<div id="btn">
+							<a href="shop.html" type="button" class="btn btn-primary" id="btn1">我是买家</a>
+							<a href="seller.html" type="button" class="btn btn-primary" id="btn2">我是卖家</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="body">
+				<div id="firstBody">
+					<div id="title">
+						<div id="body_textOne">闲置物品轻松卖</div>
+						<div id="body_textTwo">Idle goods are easily sold</div>
+					</div>
+					<div class="shutter">
+						<div class="shutter-img">
+							<a href="#" data-shutter-title="Iron Man"><img src="../img/a1.png" alt="#"></a>
+							<a href="#" data-shutter-title="Super Man"><img src="../img/a2.png" alt="#"></a>
+							<a href="#" data-shutter-title="The Hulk"><img src="../img/a3.png" alt="#"></a>
+							<a href="#" data-shutter-title="The your"><img src="../img/a4.png" alt="#"></a>
+						</div>
+						<ul class="shutter-btn">
+							<li class="prev"></li>
+							<li class="next"></li>
+						</ul>
+						<div class="shutter-desc">
+							<p>Iron Man</p>
+						</div>
+					</div>
+				</div>
+
+				<div id="secondBody">
+					<div id="title">
+						<div id="body_textOne">回收流程</div>
+						<div id="body_textTwo">Recycling Process</div>
+					</div>
+					<img src="../img/回收流程.png">
+				</div>
+
+				<div id="questions">
+					<div id="title">
+						<div id="body_textOne">回收卡常见问题</div>
+						<div id="body_textTwo">Common Problem</div>
+					</div>
+					<div id="questions-question">
+						<ul class="left">
+							<li class="item">
+								<div class="title">1、转转卡券支持回收的卡有哪些？</div>
+								<div class="content">转转卡券暂时只针对网站公布的卡种进行回收处理，目前支持回收的卡包括电商卡、商超卡、加油卡、游戏卡、话费卡等50余种，如果没有您想要提交的卡，您可以联系客服，后期会逐步地支持更多的卡类，详情请参考网站公示。</div>
+							</li>
+							<li class="item">
+								<div class="title">3、哪些卡不支持回收？</div>
+								<div class="content">凡是已使用的卡、偷盗卡、非正常渠道获得的卡以及网站上没有的卡种都不支持回收。</div>
+							</li>
+							<li class="item">
+								<div class="title">5、电子卡和实体卡都支持回收吗？</div>
+								<div class="content">实体卡是实物的，是一张卡片的形式，卡的背面有卡号和密码；电子卡是虚拟的，是通过网上在线购买获取卡号和密码的；</div>
+								<div class="content">实体卡和电子卡进行回收时只需要有卡号和密码即可，不区分电子卡和实体卡。</div>
+							</li>
+						</ul>
+						<ul class="right">
+							<li class="item">
+								<div class="title">2、游戏卡与话费卡必看问题！</div>
+								<div class="content">游戏卡与话费卡为“自动结算”形式回收，用户提交订单后最快几分钟内即可收到钱款。</div>
+								<div class="content">请提交前认真核对选择的面额，如实际面额与选择面额不符，则需要人工干预，不仅有钱款损失的风险，且费时费力！</div>
+							</li>
+							<li class="item">
+								<div class="title">4、验证成功后，如何收款？</div>
+								<div class="content">验证成功并实人认证后，会直接转账到登陆网站的微信账号上。工作时间内提交，一般两个小时内处理完成（特殊情况除外）；非工作时间内，处理时间将延期到下一个工作时间。</div>
+							</li>
+							<li class="item">
+								<div class="title">6、需要手续费吗？</div>
+								<div class="content">在转转卡券进行回收不以任何形式收取手续费，如果有任何收取手续费的行为，请警惕上当受骗。</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="footer">
+				<div id="footer_content">
+					<p>Copyright© 2018-2020 zhuanzhuan.com. All Rights
+						Reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京ICP备17029143号-1
+					</p>
+				</div>
+			</div>
+			
+		</div>
+		<script src="../js/velocity.js"></script>
+		<script src="../js/shutter.js"></script>
+		<script>
+			$(function() {
+				$('.shutter').shutter({
+					shutterW: 1000, // 容器宽度
+					shutterH: 358, // 容器高度
+					isAutoPlay: true, // 是否自动播放
+					playInterval: 3000, // 自动播放时间
+					curDisplay: 3, // 当前显示页
+					fullPage: false // 是否全屏展示
+				});
+			});
+		</script>
+	</body>
+</html>

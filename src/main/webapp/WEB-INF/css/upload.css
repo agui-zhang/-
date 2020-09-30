@@ -1,0 +1,184 @@
+
+#body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
+
+#upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    margin: 20px 0 0 0;
+    border: 1px solid lightgray;
+    width: 1170px;
+    box-shadow: 0px 0px 14px 7px rgb(238, 238, 238);
+    border-radius: 5px;
+}
+#title{
+    margin-top: 50px;
+}
+
+#uploadContain{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+#uploadContain p {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    width: 1000px;
+    margin-bottom: 40px;
+}
+
+.goodsImg{
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 30px;
+    margin-left: -30px;
+}
+.goodsImg input:hover{
+    cursor: pointer;
+}
+.goodsImg .card{
+    margin-right: 60px;
+}
+.msg{
+    margin-bottom: 30px;
+    height: 104px;
+}
+.msg input {
+    width: 920px;
+    height: 48px;
+}
+.msg textarea {
+    width: 920px;
+    height: 150px;
+}
+.card{
+    border: 0;
+}
+.card input{
+    width: 240px;
+    height: 300px;
+}
+#upload h2 {
+    font-size: 43px;
+    margin: 10px 0 70px 0;
+}
+#sub {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    width: 920px;
+}
+
+#sub input {
+    position: relative;
+    width: 170px;
+    height: 50px;
+    float: right;
+    border-radius: 0;
+    background-color: rgb(33, 33, 33);
+    border: 0;
+}
+
+#sub input:hover {
+    background-color: rgb(244, 67, 54);
+    border: 0px;
+    transition: 0.4s;
+}
+
+
+#uploadContain .card a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    background: white;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    color: #1E88C7;
+    text-decoration: none;
+    line-height: 20px;
+    height: 300px;
+    width: 240px;
+}
+#uploadContain .card input{
+    height: 300px;
+    width: 240px;
+}
+.goodsImg a:hover{
+    cursor:default;
+}
+.goodsImg input:hover{
+    cursor: pointer;
+}
+#uploadContain img{
+    position: absolute;
+    height: 300px;
+    width: 240px;
+}
+
+#uploadContain .card input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+#uploadContain a:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+
+.path {
+    margin-top: 50px;
+    width: 1170px;
+    float: left;
+}
+
+.pathContent a {
+    text-decoration: none;
+    font-weight: lighter;
+    font-size: 18px;
+}
+
+.pathContent a:hover {
+    color: red;
+}
+
+.pathContent li + li:before {
+    content: "->";
+    margin: 0 10px;
+}
+
+.pathContent {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+}
+#sub input:visited {
+    border: 0px;
+}
+#sub input:active {
+    border: 0px;
+}
+.btn:hover, .btn:focus, .btn:active, .btn:visited,a:hover, a:focus,a:active,a:visited {
+    outline: none;
+    box-shadow: none !important;
+}

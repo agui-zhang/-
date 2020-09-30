@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title></title>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../bootstrap-4.5.0-dist/js/popper.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap-4.5.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/sort.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <script src="../bootstrap-4.5.0-dist/js/bootstrap.min.js"></script>
+    <script src="../js/AboutUser.js"></script>
+    <script src="../js/sort.js"></script>
+    <script src="../js/searchGoods.js"></script>
+
+    <script type='text/template' id="demo">
+        <div class="card" style="display: none">
+            <div class="text-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+            <div class="cardImg">
+                <img src="" class="card-img-top productImg" alt="..." style="display: none">
+            </div>
+            <div class="card-body">
+                <a href="javascript:void(0)" class="card-text productName" onclick="quickView(this)"></a>
+                <p class="card-text money"></p>
+            </div>
+            <div class="img_option">
+                <a class="addToCar btn btn-dark" href="javascript:void(0)" style="font-size: 14px" onclick="addToCar(this)">加入购物车</a>
+                <span class="quick-view">
+                        <a href="javascript:void(0)" class="btn btn-dark" onclick="quickView(this)" style="font-size: 14px">商品详情</a>
+                    </span>
+            </div>
+        </div>
+    </script>
+    <script type="text/template" id="demo2">
+        <li class="page-item" onclick="footer(this)">
+            <a class="page-link pageMath" href="#"></a>
+        </li>
+    </script>
+
+</head>
+<body>
+<div id="root">
+    <div id="header">
+        <div id="container">
+            <div class="header-top">
+                <div class="pull-left">
+                    <ol class="nav" style="background-color: white">
+                        <li class="nav-item"><a class="nav-link" href="/shopPage">首页</a></li>
+                        <li class="nav-item shu"><span>|</span></li>
+                        <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                    </ol>
+                </div>
+                <div class="pull-right">
+                    <ol class="nav" style="background-color: white">
+                        <li class="nav-item"><a class="nav-link" href="#">我的账号</a></li>
+                        <li class="nav-item shu"><span class="shu">|</span></li>
+                        <li class="nav-item"><a class="nav-link" href="/shopCarPage">购物车</a></li>
+                        <li class="nav-item login">
+                            <button type="button" class="btn btn-primary" id="login"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                登录
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" id="loginForm"
+                                 aria-labelledby="navbarDropdown2">
+                                <form class="px-4 py-3" action="##" onsubmit="return false" type="post" id="form">
+                                    <div class="form-group">
+                                        <label for="loginEmail">邮箱</label>
+                                        <input type="email" class="form-control" id="loginEmail"
+                                               placeholder="请输入您的邮箱">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="loginPassword">密码</label>
+                                        <input type="password" class="form-control" id="loginPassword"
+                                               placeholder="请输入您的密码">
+                                    </div>
+                                    <div>
+                                        <div id="footer1">
+                                            <div id="forget"><a href="#">忘记密码?</a></div>
+                                            <a class="btn btn-dark" href="#" onclick="login()" id="loginBtn">登录</a>
+                                        </div>
+                                        <div id="footer2">
+                                            <text>还未注册？<a id="registerBtn" href="/registerPage">点击这里免费注册</a></text>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" id="loginForm2"
+                                 aria-labelledby="login">
+                                <form class="px-4 py-3" action="##" onsubmit="return false" type="post" id="form">
+                                    <div class="form-group">
+                                        <label for="loginEmail">邮箱</label>
+                                        <input type="email" class="form-control" id="loginEmail"
+                                               placeholder="请输入您的邮箱">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="loginPassword">密码</label>
+                                        <input type="password" class="form-control" id="loginPassword"
+                                               placeholder="请输入您的密码">
+                                    </div>
+                                    <div>
+                                        <div id="footer1">
+                                            <div id="forget"><a href="#">忘记密码?</a></div>
+                                            <a class="btn btn-dark" href="#" onclick="login()" id="loginBtn">登录</a>
+                                        </div>
+                                        <div id="footer2">
+                                            <text>还未注册？<a id="registerBtn" href="/registerPage">点击这里免费注册</a></text>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" id="userForm"
+                                 aria-labelledby="userForm">
+                                <div class="d-flex justify-content-center align-content-center flex-column">
+                                    <div id="userImg" class="d-flex  flex-column">
+                                        <a href="/accountPage"><img src="../img/say.jpg"></a>
+                                        <a href="/accountPage"><i id="userNameO">AGUI_ZHANG</i></a>
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div id="option">
+                                        <div>
+                                            <ul class="row1 d-flex justify-content-center align-content-center flex-row ">
+                                                <li>
+                                                    <a href="/accountPage">
+                                                        <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                                             class="bi bi-chat-square-text" fill="currentColor"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                  d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                                        </svg>
+                                                        <text>个人信息</text>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                                             class="bi bi-chat-square-text" fill="currentColor"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                  d="M14 1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.5a2 2 0 0 1 1.6.8L8 14.333 9.9 11.8a2 2 0 0 1 1.6-.8H14a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                                            <path fill-rule="evenodd"
+                                                                  d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                                                        </svg>
+                                                        <text>消息</text>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                                             class="bi bi-chat-square-text" fill="currentColor"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                  d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
+                                                            <path fill-rule="evenodd"
+                                                                  d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
+                                                        </svg>
+                                                        <text>设置</text>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <ul class="row1 d-flex justify-content-center align-content-center flex-row ">
+                                                <li>
+                                                    <a href="/shopCarPage">
+                                                        <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                                             class="bi bi-chat-square-text" fill="currentColor"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                  d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                                                        </svg>
+                                                        <text>购物车</text>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/wishListPage">
+                                                        <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                                             class="bi bi-chat-square-text" fill="currentColor"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                  d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                                        </svg>
+                                                        <text>收藏</text>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/uploadPage">
+                                                        <svg width="2em" height="2em" viewBox="0 0 16 16"
+                                                             class="bi bi-chat-square-text" fill="currentColor"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd"
+                                                                  d="M7.27 1.047a1 1 0 0 1 1.46 0l6.345 6.77c.6.638.146 1.683-.73 1.683H11.5v1a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-1H1.654C.78 9.5.326 8.455.924 7.816L7.27 1.047zM14.346 8.5L8 1.731 1.654 8.5H4.5a1 1 0 0 1 1 1v1h5v-1a1 1 0 0 1 1-1h2.846zm-9.846 5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-1zm6 0h-5v1h5v-1z"/>
+                                                        </svg>
+                                                        <text>发布商品</text>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <button id="logout" type="button" onclick="logout()">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-power"
+                                             fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                  d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z"/>
+                                            <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z"/>
+                                        </svg>
+                                        <text>登出</text>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <span class="blank" style="height:40px;"></span>
+            <div id="ss" class="header-content">
+                <h3 class="logo pull-left">
+                    <a href="#">
+                        <img src="../img/logo.png" alt="">
+                    </a>
+                </h3>
+                <div id="search" class="input-group  pull-right">
+                    <input type="text" class="form-control" placeholder="请输入您要搜索的商品"
+                           style="margin-right: 5px">
+                    <a href="javascript:void (0)" class="btn btn-outline-primary" onclick="searchGoods()">搜索</a>
+                </div>
+            </div>
+        </div>
+        <div id="menu">
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #1d1d1d">
+                <a class="navbar-brand" href="/shopPage" style="color:lightgray;">首页</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a style="color: lightgray" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                               role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                分类
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-top: 10px">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div id="body">
+        <button onclick="topFunction()" id="myBtn" title="回顶部">返回顶部</button>
+        <div class="product">
+            <div class="productContainer">
+                <div class="productRowLeft">
+                    <div>
+                        <h3>所有分类</h3>
+
+                        <div class="accordion" id="accordionExample">
+                            <div class="">
+                                <div id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn  btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                                aria-controls="collapseTwo">
+                                            <div style="float: left">
+                                                Collapsible Group Item #1
+                                            </div>
+                                            <div style="float: right">
+                                                >
+                                            </div>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        wa
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="productRowRight">
+                    <div>
+                        <div class="sortNav" style="margin-top: 30px">
+                            <nav class="navbar navbar-expand-lg" style="display: flex">
+                                <div class="collapse navbar-collapse" id="sortbar">
+                                    <span>
+                                        <a id="span1" onclick="change1()"><svg class="active" id="span1Svg"
+                                                                               width="15px"
+                                                                               height="15px"
+                                                                               viewBox="0 0 16 16"
+                                                                               fill="currentColor"
+                                                                               xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+        d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
+</svg></a>
+                                        <a id="span2" onclick="change2()"><svg id="span2Svg" width="20px"
+                                                                               height="20px"
+                                                                               viewBox="0 0 16 16"
+                                                                               fill="currentColor"
+                                                                               xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd"
+        d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+</svg></a>
+                                    </span>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="Row" id="row" style="width: 906px;min-width: 906px;white-space: normal">
+
+                        </div>
+                        <div class="sortFoot">
+                            <nav aria-label="Page navigation example" class="pull-right" style="margin-right: 30px">
+                                <ul class="pagination">
+                                    <li class="page-item disabled" id="previous">
+                                        <a class="page-link" href="#" aria-label="Previous" onclick="previous()">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item" id="next">
+                                        <a class="page-link" href="#" aria-label="Next" onclick="next()">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" style="float: bottom">
+        <div class="footerFirst">
+            <div class="footerLeft">
+                <div class="Left1">
+                    <h3 class="l1">ABOUT ME</h3>
+                    <p class="l1">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                        praesentium</p>
+                    <ul class="l1">
+                        <li>
+                            <span>Address:&nbsp;</span>
+                            <address>
+                                123 Sky Tower address name, Los Algeles,
+                                <br>
+                                USA, Country, 01234
+                            </address>
+                        </li>
+                        <li>
+                            <span>Phone:&nbsp;</span>
+                            (012) 345 6789
+                        </li>
+                        <li>
+                            <span>Email:&nbsp;</span>
+                            2358395251@qq.com
+                        </li>
+                    </ul>
+                </div>
+                <div class="l2">
+                    <h3>Design by:&nbsp;&nbsp;</h3>
+                    <h3>AGUI_ZHANG</h3>
+                </div>
+            </div>
+            <div class="footerRight">
+                <div class="up">
+                    <h3>WHAT CLIENTS SAY?</h3>
+                    <div class="say">
+                        <img src="../img/say.jpg" alt="">
+                        <div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua.</p>
+                            <span>Kathy Young</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="col">
+                            <h3>HOW TO BUY</h3>
+                            <ul>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Site Map</a></li>
+                                <li><a href="#">Brands</a></li>
+                                <li><a href="#">Gift Vouchers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="col">
+                            <h3>MY ACCOUNT</h3>
+                            <ul>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Order History</a></li>
+                                <li><a href="#">Wish List</a></li>
+                                <li><a href="#">Newsletter</a></li>
+                                <li><a href="#">Specials</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="col">
+                            <h3>INFORMATION</h3>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Term & Conditions</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footerSecond">
+            <div class="row2">
+                <div class="col-md-6 col-sm-6" id="footerText">
+                    <p>Copyright © 2020 Design website by <a href="#">AGUI_ZHANG</a>. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="pull-right" id="row2Img">
+                        <a href="#"><img src="../img/visa.png" alt=""></a>
+                        <a href="#"><img src="../img/Intersection.png" alt=""></a>
+                        <a href="#"><img src="../img/ebay.png" alt=""></a>
+                        <a href="#"><img src="../img/amazon.png" alt=""></a>
+                        <a href="#"><img src="../img/discover.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

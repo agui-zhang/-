@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.graduation.project"/>
+    <mvc:annotation-driven/>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/html/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8" />
+        <property name="maxUploadSize" value="10485760000" />
+        <property name="maxInMemorySize" value="40960" />
+    </bean>
+    <mvc:default-servlet-handler/>
+    <mvc:resources mapping="/css/*" location="/WEB-INF/css/"/>
+    <mvc:resources mapping="/img/*" location="/WEB-INF/img/"/>
+    <mvc:resources mapping="/js/*" location="/WEB-INF/js/"/>
+    <mvc:resources mapping="/img/bootstrap-icons-1.0.0-alpha5/*" location="/WEB-INF/img/bootstrap-icons-1.0.0-alpha5/"/>
+    <mvc:resources mapping="/bootstrap-4.5.0-dist/js/*" location="/WEB-INF/bootstrap-4.5.0-dist/js/"/>
+    <mvc:resources mapping="/bootstrap-4.5.0-dist/css/*" location="/WEB-INF/bootstrap-4.5.0-dist/css/"/>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/shopCar"/>
+            <bean class="com.graduation.project.interceptor.ShopCarInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/login"/>
+            <bean class="com.graduation.project.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+</beans>

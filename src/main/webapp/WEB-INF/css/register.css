@@ -1,0 +1,53 @@
+
+#register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0 0 0;
+}
+
+#register p {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+.msg{
+    margin-bottom: 20px;
+    height: 103px;
+}
+
+.msg input {
+    width: 600px;
+    height: 48px;
+}
+
+#register h2 {
+    font-size: 43px;
+    margin: 10px 0 70px 0;
+}
+
+#sub {
+    float: right;
+}
+
+#sub input {
+    width: 170px;
+    height: 50px;
+margin-left: 430px;
+    border-radius: 0;
+    background-color: rgb(33, 33, 33);
+}
+
+#sub input:hover {
+    background-color: rgb(244, 67, 54);
+    border: 0px;
+    border-radius: 0;
+    transition: 0.4s;
+
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn:visited,a:hover, a:focus,a:active,a:visited {
+    outline: none;
+    box-shadow: none !important;
+}
